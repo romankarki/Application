@@ -40,15 +40,24 @@ namespace Infrastructure.Persistence.Repository
         }
 
         public async Task<T> UpdateAsync(T entity)
-        { 
-            _dbSet.Attach(entity);
-            _context.Entry(entity).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return entity;
+        {
+            try
+            {
+                _dbSet.Attach(entity);
+                _context.Entry(entity).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return entity;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         public async Task<T> FindFirstAsync(Expression<Func<T, bool>> predicate)
         {
-            return await _dbSet.Where(predicate).FirstOrDefaultAsync();
+            var res = await _dbSet.AsNoTracking().Where(predicate).FirstOrDefaultAsync();
+            return res;
         }
     }
 }

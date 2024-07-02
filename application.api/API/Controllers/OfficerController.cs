@@ -1,12 +1,12 @@
 ﻿using Application.Interfaces.Services;
 using Contracts.Models.Request;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
     [Route("api/v1/[controller]")]
-    [Authorize]
+    [API.Attributes.Authorize]
     public class OfficerController : BaseController 
     {
         private readonly IOfficerService _officerService;

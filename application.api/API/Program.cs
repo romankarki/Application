@@ -19,7 +19,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseCors(
-        options => options.WithOrigins(["*", "http://localhost:4200"]).AllowAnyMethod().AllowAnyHeader()
+        options => options.WithOrigins(["http://localhost:4200"]).AllowAnyMethod().AllowAnyHeader()
  );
 app.UseMiddleware<JwtMiddleware>();
 

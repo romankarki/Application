@@ -1,0 +1,39 @@
+<div>
+    <div>
+        <input type="file" (change)="fileSelect($event)">
+    </div>
+    <div class="col-md-12" style="background-color: white;">
+   
+         <ngx-datatable class="material fullscreen ngx-datatable" [loadingIndicator]="loadingIndicator"
+            [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40" [offset]="page.number-1"
+            [rows]="rows" [limit]="page.size" [externalPaging]="true" [count]=30 (page)='setPage($event)'>
+              <ngx-datatable-column prop="company" name="Company" [width]="10">
+              <ng-template ngx-datatable-cell-template let-value="value">
+                <ng-container>
+                  <div>
+                    {{value}}
+                  </div>
+                </ng-container>
+              </ng-template>
+            </ngx-datatable-column>
+              <ngx-datatable-column prop="name" name="Name" [width]="10">
+              <ng-template ngx-datatable-cell-template let-value="value">
+                <ng-container>
+                  <div>
+                    {{value}}
+                  </div>
+                </ng-container>
+              </ng-template>
+            </ngx-datatable-column>
+              <ngx-datatable-column prop="gender" name="Gender" [width]="10">
+              <ng-template ngx-datatable-cell-template let-value="value">
+                <ng-container>
+                  <div>
+                    {{value}}
+                  </div>
+                </ng-container>
+              </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</div>

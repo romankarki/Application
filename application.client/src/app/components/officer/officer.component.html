@@ -1,0 +1,12 @@
+<div>
+    <label>Choose a CSV file for Officer Data</label>
+    <br/>
+    <a target="_blank" href="https://docs.google.com/spreadsheets/d/1RkQ35dvdCc8MujP_8Y20MD93v464ldWJG9FXRZpW9oY/edit?usp=sharing">
+     example format 
+    </a>
+    <br/>
+    <br/>
+   <input class="form-control" type="file" (change)="selectFile($event)" accept=".csv"/>
+   <button class="btn btn-primary btn-block mt-3" (click)="save()">Save</button> 
+
+</div>

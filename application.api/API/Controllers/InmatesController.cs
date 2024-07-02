@@ -16,9 +16,16 @@ namespace API.Controllers
         }
 
         [HttpGet("get-inmates/{pageNum:int}/{search?}/{filter?}")]
-        public async Task<IActionResult> GetInmatesPage(int pageNum, string search = null, string filter = null)
+        public async Task<IActionResult> GetInmatesPageAsync(int pageNum, string search = null, string filter = null)
         {
             var result = await _inmateService.GetInmatesAsync(pageNum, search, filter);
+            return Ok(result);
+
+        }
+        [HttpGet("get-inmates-count/{pageNum:int}/{search?}/{filter?}")]
+        public async Task<IActionResult> GetInmatesCountasync(string search = null, string filter = null)
+        {
+            var result = await _inmateService.GetInmatesCountAsync(search, filter);
             return Ok(result);
 
         }

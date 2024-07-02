@@ -81,6 +81,13 @@ namespace Application.Implementation
             return result;
         }
 
+        public async Task<int> GetInmatesCountAsync( string search, string filter)
+        {
+            var result = await _inmateRepository.GetInmatesAsync(0, search, filter);
+            return result.Count();
+        }
+
+
         public async Task<bool> TransferInmatesAsync(RequestTransferModel model, int officerId)
         {
             foreach (var idNumber in model.IdentificationNumbers)

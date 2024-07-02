@@ -19,7 +19,7 @@ namespace Infrastructure.Dependency
 
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IOfficerRepository, OfficerRepository>();
             services.AddTransient<ITestRepository, TestRepository>();
             services.AddTransient<IInmateRepository, InmateRepository>();

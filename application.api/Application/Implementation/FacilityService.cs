@@ -78,6 +78,12 @@ namespace Application.Implementation
             var result = await _facilityRepository.GetFacilityByPageNumber(pageNumber);
             return result.Select(x => ToFacilityModel(x));
         }
+        public async Task<int> GetALlFacilitiesCountAsync()
+        {
+            var result = await _facilityRepository.GetFacilityByPageNumber(0);
+            return result.Count();
+        }
+
 
         private FacilitiesModel ToFacilityModel(Facility entity)
         {

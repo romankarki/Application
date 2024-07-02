@@ -7,5 +7,7 @@ namespace Application.Interfaces.Services
     {
         Task<BulkFacilityRegistrationResponseModel> BulkUploadFacilityAsync(IFormFile file, int officerId);
         Task<IEnumerable<FacilitiesModel>> GetALlFacilitiesAsync(int pageNumber);
+        Task<int> GetALlFacilitiesCountAsync();
+
     }
 }

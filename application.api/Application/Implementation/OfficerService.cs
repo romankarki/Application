@@ -51,7 +51,7 @@ namespace Application.Implementation
                 var recordsRejected = new List<RejectedRecords>();
                 foreach(var record in records)
                 {
-                    var exists = await _repo.FindFirstAsync(x => x.IdentificationNumber == record.IdentificationNumber);
+                    var exists = await _officeRepo.FindOfficerByIdentificationNumberAsync(record.IdentificationNumber);
                     if(exists != null)
                     {
                         var officer = ToOfficer(record, officerId);
@@ -65,7 +65,7 @@ namespace Application.Implementation
                         var res = await _repo.UpdateAsync(officer);
                         if (res == null)
                         {
-                            var reject = new RejectedRecords { IdentificationNumber = officer.IdentificationNumber, ErrorMessage = "failed to update, please recheck values" };
+                            var reject = new RejectedRecords { IdentificationNumber = officer.IdentificationNumber, ErrorMessage = "failed to update with this duplicate identification number, please recheck values" };
                             recordsRejected.Add(reject);
                             continue;
                         }

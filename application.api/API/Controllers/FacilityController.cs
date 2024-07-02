@@ -22,6 +22,14 @@ namespace API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("get-all-facilites-count")]
+        public async Task<IActionResult> GetAllFacilitiesCountAsync()
+        {
+            var result = await _facilityService.GetALlFacilitiesCountAsync();
+            return Ok(result);
+        }
+
+
         [HttpPost("bulk-upload-facilities")]
         public async Task<IActionResult> BulkUploadFacilitiesAsync([FromForm] BulkRegisterModel model)
         {
