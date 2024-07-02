@@ -45,3 +45,5 @@ cd Application/application.client
 npm install
 ng serve
 ```
+
+your angular application should run on port 4200
