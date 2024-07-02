@@ -6,16 +6,16 @@ Project For Acme
 
 currently docker compose is not fully configured so go through the manual step
 
-```docker-compose up
-
+```
+docker-compose up
 ```
 
 ## Manual Setup
 
 1. First create a docker container for mysql (make sure your port 3306 is not occupied)
 
-```docker run --name mydbconiner -e MYSQL_ROOT_PASSWORD=romankarki -p 3306:3306 -d mysql:latest
-
+```
+docker run --name mydbconiner -e MYSQL_ROOT_PASSWORD=romankarki -p 3306:3306 -d mysql:latest
 ```
 
 2. go to application, then in application.api/API and run the dotnet services
