@@ -47,3 +47,5 @@ ng serve
 ```
 
 your angular application should run on port 4200
+
+A default user with Idenfication Number : ID11 and Password: Pass@123 is created to get started
