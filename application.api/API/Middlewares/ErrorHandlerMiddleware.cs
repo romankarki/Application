@@ -38,7 +38,11 @@ namespace API.Middlewares
                     code = HttpStatusCode.NotFound;
                     result = System.Text.Json.JsonSerializer.Serialize(new { error = "File not found." });
                     break;
-                default:
+                case CsvHelper.HeaderValidationException:
+                    code = HttpStatusCode.BadRequest;
+                    result =  System.Text.Json.JsonSerializer.Serialize(new { error = "Data in file was not in correct format." });
+                    break;
+               default:
                     code = HttpStatusCode.InternalServerError;
                     result = System.Text.Json.JsonSerializer.Serialize(new { error = "An unexpected error occurred. Please try again later." });
                     break;
